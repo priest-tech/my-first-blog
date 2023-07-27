@@ -1,28 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>My Blog</title>
-</head>
-<body>
+  </head>
+  <body>
     <header>
-        <h1>
-            <a href="/">My Blog</a>
-        </h1>
+      <h1>
+        <a href="/">My Blog</a>
+      </h1>
     </header>
+    {% for post in posts %}
     <article>
-        <time> published: 27.07.2023, 10:12</time>
-        <h2>
-            <a href="">My first post</a>
-        </h2>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque nam expedita sed vel iusto tempore assumenda, sit voluptates libero. Officia expedita debitis at quod? Neque eius sequi sit aliquid iure?</p>
+      <time>published: {{post.published_date}}</time>
+      <h2><a href="">{{post.title}}</a></h2>
+      <p>{{ post.text|linebreaksbr }}</p>
     </article>
-    <article>
-        <time> published: 14.07.2023, 11:30</time>
-        <h2><a href="">My second post</a></h2>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe incidunt mollitia dolore dolorum nulla accusamus unde fugit consequuntur ad laborum accusantium, officiis fugiat, fuga amet autem? Necessitatibus ratione consequatur animi!</p>
-
-    </article>
-    </body>
+    {% endfor %}
+  </body>
 </html>
